@@ -5,7 +5,7 @@ A modern, interactive **Ben 10–inspired web application** that showcases alien
 ---
 
 ## 🚀 Live Demo
-👉 _Coming soon (will be added after deployment)_
+👉 https://alien-galaxy-explorer.vercel.app
 
 ---
 
