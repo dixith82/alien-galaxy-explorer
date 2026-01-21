@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 5% 4%;
+    --foreground: 120 5% 95%;
+    --card: 120 8% 8%;
+    --card-foreground: 120 5% 95%;
+    --popover: 120 8% 8%;
+    --popover-foreground: 120 5% 95%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 120 5% 4%;
+    --secondary: 120 20% 15%;
+    --secondary-foreground: 120 5% 95%;
+    --muted: 120 10% 15%;
+    --muted-foreground: 120 5% 65%;
+    --accent: 120 100% 40%;
+    --accent-foreground: 120 5% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 120 20% 20%;
+    --input: 120 20% 20%;
+    --ring: 120 100% 50%;
+    --radius: 0.75rem;
+
+    --omnitrix-green: 120 100% 50%;
+    --omnitrix-glow: 120 100% 60%;
+    --omnitrix-dark: 120 100% 25%;
+
+    --sidebar-background: 120 8% 8%;
+    --sidebar-foreground: 120 5% 95%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 120 5% 4%;
+    --sidebar-accent: 120 20% 15%;
+    --sidebar-accent-foreground: 120 5% 95%;
+    --sidebar-border: 120 20% 20%;
+    --sidebar-ring: 120 100% 50%;
+  }
+
+  .dark {
+    --background: 120 5% 4%;
+    --foreground: 120 5% 95%;
+    --card: 120 8% 8%;
+    --card-foreground: 120 5% 95%;
+    --popover: 120 8% 8%;
+    --popover-foreground: 120 5% 95%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 120 5% 4%;
+    --secondary: 120 20% 15%;
+    --secondary-foreground: 120 5% 95%;
+    --muted: 120 10% 15%;
+    --muted-foreground: 120 5% 65%;
+    --accent: 120 100% 40%;
+    --accent-foreground: 120 5% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 120 20% 20%;
+    --input: 120 20% 20%;
+    --ring: 120 100% 50%;
+
+    --sidebar-background: 120 8% 8%;
+    --sidebar-foreground: 120 5% 95%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 120 5% 4%;
+    --sidebar-accent: 120 20% 15%;
+    --sidebar-accent-foreground: 120 5% 95%;
+    --sidebar-border: 120 20% 20%;
+    --sidebar-ring: 120 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .font-body {
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  .omnitrix-glow {
+    box-shadow: 
+      0 0 10px hsl(var(--omnitrix-green)),
+      0 0 20px hsl(var(--omnitrix-green) / 0.5),
+      0 0 40px hsl(var(--omnitrix-green) / 0.3);
+  }
+  
+  .omnitrix-text-glow {
+    text-shadow: 
+      0 0 10px hsl(var(--omnitrix-green)),
+      0 0 20px hsl(var(--omnitrix-green) / 0.5);
+  }
+  
+  .gradient-border {
+    background: linear-gradient(135deg, hsl(var(--omnitrix-green)), hsl(var(--omnitrix-dark)));
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--background) / 0.8);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--omnitrix-dark));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--omnitrix-green));
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px hsl(var(--omnitrix-green)), 0 0 20px hsl(var(--omnitrix-green) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--omnitrix-green)), 0 0 40px hsl(var(--omnitrix-green) / 0.7);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
